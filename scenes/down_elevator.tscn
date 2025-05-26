@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dq2axf2n0pshg"]
 
 [ext_resource type="Script" uid="uid://cc67eu2e0udfa" path="res://scripts/elevator.gd" id="1_otkwm"]
-[ext_resource type="Texture2D" uid="uid://t0k5lsctf3x8" path="res://assets/1-bit pack/Tilesheet/colored.png" id="1_u8tpn"]
+[ext_resource type="Texture2D" uid="uid://crtjnb16e641u" path="res://assets/colored.png" id="2_otkwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otkwm"]
 size = Vector2(12, 12)
@@ -18,7 +18,7 @@ script = ExtResource("1_otkwm")
 shape = SubResource("RectangleShape2D_otkwm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_u8tpn")
+texture = ExtResource("2_otkwm")
 region_enabled = true
 region_rect = Rect2(680, 0, 16, 16)
 

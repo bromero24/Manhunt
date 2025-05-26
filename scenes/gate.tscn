@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cradi2tym0i20"]
 
 [ext_resource type="Script" uid="uid://dqamufag1agnv" path="res://scripts/gate.gd" id="1_xwxio"]
-[ext_resource type="Texture2D" uid="uid://t0k5lsctf3x8" path="res://assets/1-bit pack/Tilesheet/colored.png" id="2_xwxio"]
+[ext_resource type="Texture2D" uid="uid://crtjnb16e641u" path="res://assets/colored.png" id="2_xwxio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi8tm"]
 size = Vector2(12, 12)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://duomss18brwnn"]
 
-[ext_resource type="Texture2D" uid="uid://t0k5lsctf3x8" path="res://assets/1-bit pack/Tilesheet/colored.png" id="1_5ysea"]
 [ext_resource type="Script" uid="uid://cet2qphhr83wv" path="res://scripts/wire.gd" id="1_mgbw2"]
+[ext_resource type="Texture2D" uid="uid://crtjnb16e641u" path="res://assets/colored.png" id="2_mgbw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgbw2"]
 size = Vector2(12, 12)
@@ -13,7 +13,7 @@ size = Vector2(2, 2)
 script = ExtResource("1_mgbw2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5ysea")
+texture = ExtResource("2_mgbw2")
 region_enabled = true
 region_rect = Rect2(629, 0, 16, 16)
 
