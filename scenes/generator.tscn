@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh2yo7jrnxht4"]
+
+[ext_resource type="Texture2D" uid="uid://t0k5lsctf3x8" path="res://assets/1-bit pack/Tilesheet/colored.png" id="1_5yxne"]
+[ext_resource type="Script" uid="uid://c7340uknw87e4" path="res://scripts/generator.gd" id="1_w5vnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5vnv"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef8yp"]
+size = Vector2(2, 2)
+
+[node name="Generator" type="StaticBody2D"]
+script = ExtResource("1_w5vnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5yxne")
+region_enabled = true
+region_rect = Rect2(663, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w5vnv")
+
+[node name="PowerCheck" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerCheck"]
+shape = SubResource("RectangleShape2D_ef8yp")
+
+[node name="PowerCheck2" type="Area2D" parent="."]
+position = Vector2(8, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerCheck2"]
+shape = SubResource("RectangleShape2D_ef8yp")
+
+[node name="PowerCheck3" type="Area2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerCheck3"]
+shape = SubResource("RectangleShape2D_ef8yp")
+
+[node name="PowerCheck4" type="Area2D" parent="."]
+position = Vector2(-8, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerCheck4"]
+shape = SubResource("RectangleShape2D_ef8yp")

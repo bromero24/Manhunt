@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cin0yco14kfql"]
+
+[ext_resource type="Texture2D" uid="uid://t0k5lsctf3x8" path="res://assets/1-bit pack/Tilesheet/colored.png" id="1_kmsig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otkwm"]
+size = Vector2(15, 15)
+
+[node name="UpElevator" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kmsig")
+region_enabled = true
+region_rect = Rect2(391, 51, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_otkwm")
