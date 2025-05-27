@@ -93,7 +93,7 @@ func interact():
 			collided.activate()
 			player_update.emit()
 			return collided
-		elif collided is Wire and not collided.moving:
+		elif collided is Wire and not collided.moving and LevelManager.inventory["wrench"] == 1:
 			collided.cwise()
 			player_update.emit()
 			return collided

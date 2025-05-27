@@ -6,9 +6,11 @@ var powered = false
 
 func activate():
 	if not powered and LevelManager.has_item("fuel_cell"):
+		powered = true
 		LevelManager.use_item("fuel_cell")
+		sprite.region_rect.position.y = int(powered) * 17
 		
 	elif powered:
+		powered = false
 		LevelManager.collect_item(null, "fuel_cell")
-	powered = not powered
-	sprite.region_rect.position.y = int(powered) * 17
+		sprite.region_rect.position.y = int(powered) * 17
