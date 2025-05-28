@@ -1149,6 +1149,7 @@ position = Vector2(-24, 24)
 [node name="Wire" parent="." instance=ExtResource("6_qvnao")]
 position = Vector2(8, -24)
 rotation = 1.5708
+movable = true
 
 [node name="Wire2" parent="." instance=ExtResource("6_qvnao")]
 position = Vector2(-24, -24)
@@ -1157,6 +1158,7 @@ rotation = -1.5708
 [node name="Wire3" parent="." instance=ExtResource("7_hsvsk")]
 position = Vector2(24, -24)
 rotation = 1.5708
+movable = true
 
 [node name="UpElevator" parent="." instance=ExtResource("9_um320")]
 position = Vector2(8, 40)

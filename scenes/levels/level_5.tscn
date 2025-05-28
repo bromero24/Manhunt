@@ -1163,34 +1163,43 @@ rotation = 1.5708
 [node name="Wire2" parent="." instance=ExtResource("9_h717f")]
 position = Vector2(-8, 24)
 rotation = 1.5708
+movable = true
 
 [node name="Wire3" parent="." instance=ExtResource("9_h717f")]
 position = Vector2(40, 40)
 rotation = 3.14159
+movable = true
 
 [node name="Wire4" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(24, 40)
 rotation = 1.5708
+movable = true
 
 [node name="Wire5" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(-8, -8)
+movable = true
 
 [node name="Wire6" parent="." instance=ExtResource("9_h717f")]
 position = Vector2(40, -8)
 rotation = 1.5708
+movable = true
 
 [node name="Wire7" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(40, -24)
+movable = true
 
 [node name="Wire8" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(24, -24)
+movable = true
 
 [node name="Wire9" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(8, -24)
 rotation = 1.5708
+movable = true
 
 [node name="Wire10" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(8, -8)
+movable = true
 
 [node name="UpElevator" parent="." instance=ExtResource("10_tqnj0")]
 position = Vector2(-24, -40)

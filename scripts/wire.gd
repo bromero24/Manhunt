@@ -8,6 +8,7 @@ extends StaticBody2D
 @export var powered : bool
 @export var starting_position : Vector2
 @export var starting_rotation_deg : float
+@export var movable : bool
 
 signal wire_update
 
@@ -36,41 +37,44 @@ func reset():
 
 ################# Moving functions #################
 func spin(direction: String):
-	var spin_val = spin_direction[direction]
-	var target_rotation = rotation_degrees + (spin_val * 90)
-	
-	var tween = create_tween()
-	tween.tween_property(self, "rotation_degrees", target_rotation, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-	moving = true
-	await tween.finished
-	moving = false
-	
-	if rotation_degrees == (spin_val * 360):
-		rotation_degrees = 0
+	if movable:
+		var spin_val = spin_direction[direction]
+		var target_rotation = rotation_degrees + (spin_val * 90)
 		
-	ray.rotation = -1 * rotation
-	wire_update.emit()
-
-func push(dir: Vector2) -> bool:
-	ray.target_position = dir * LevelManager.tile_size
-	ray.force_raycast_update()
-	
-	if !ray.is_colliding():
 		var tween = create_tween()
-		tween.tween_property(self, "position", position + ray.target_position, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(self, "rotation_degrees", target_rotation, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 		moving = true
 		await tween.finished
 		moving = false
-		await get_tree().create_timer(.05).timeout
+		
+		if rotation_degrees == (spin_val * 360):
+			rotation_degrees = 0
+			
+		ray.rotation = -1 * rotation
 		wire_update.emit()
-		return true
-	
+
+func push(dir: Vector2) -> bool:
+	if movable:
+		ray.target_position = dir * LevelManager.tile_size
+		ray.force_raycast_update()
+		
+		if !ray.is_colliding():
+			var tween = create_tween()
+			tween.tween_property(self, "position", position + ray.target_position, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			moving = true
+			await tween.finished
+			moving = false
+			await get_tree().create_timer(.05).timeout
+			wire_update.emit()
+			return true
+		
+		return false
 	return false
 
 
 ################# Update functions #################
 func update_sprite():
-	sprite.region_rect.position.y = int(powered) * 17
+	sprite.region_rect.position.y = (int(powered) * 17) + (int(not movable) * 34)
 
 func update() -> bool:
 	for power in power_checks:

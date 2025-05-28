@@ -1,5 +1,5 @@
 class_name Elevator
-extends StaticBody2D
+extends Area2D
 
 @onready var power_checks = [$PowerCheck, $PowerCheck2, $PowerCheck3, $PowerCheck4]
 @onready var sprite = $Sprite2D

@@ -9,7 +9,7 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8tpn"]
 size = Vector2(2, 2)
 
-[node name="DownElevator" type="StaticBody2D"]
+[node name="DownElevator" type="Area2D"]
 script = ExtResource("1_otkwm")
 direction = "down"
 

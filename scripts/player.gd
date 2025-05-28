@@ -48,10 +48,6 @@ func move(dir: Vector2) -> Object:
 	moving = false
 	player_update.emit()
 	
-	if collided is Elevator and collided.powered:
-		LevelManager.load_level(collided.destination_level)
-		return null
-	
 	return self
 
 func interact():

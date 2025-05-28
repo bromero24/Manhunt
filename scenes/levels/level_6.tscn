@@ -1158,10 +1158,12 @@ position = Vector2(88, 24)
 
 [node name="Wire" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(-40, 24)
+movable = true
 
 [node name="Wire2" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(-24, -8)
 rotation = 1.5708
+movable = true
 
 [node name="Wire3" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(-8, -40)
@@ -1170,20 +1172,25 @@ rotation = 1.5708
 [node name="Wire4" parent="." instance=ExtResource("7_tqv5a")]
 position = Vector2(-40, 40)
 rotation = 4.71239
+movable = true
 
 [node name="Wire5" parent="." instance=ExtResource("7_tqv5a")]
 position = Vector2(24, -40)
 rotation = 1.5708
+movable = true
 
 [node name="Wire6" parent="." instance=ExtResource("7_tqv5a")]
 position = Vector2(56, -8)
 rotation = 4.71239
+movable = true
 
 [node name="Wire7" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(56, -24)
+movable = true
 
 [node name="Wire8" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(72, 8)
+movable = true
 
 [node name="Wire9" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(40, -40)
@@ -1196,6 +1203,7 @@ rotation = 1.5708
 [node name="Wire11" parent="." instance=ExtResource("6_4wfvb")]
 position = Vector2(-8, -8)
 rotation = 1.5708
+movable = true
 
 [node name="Wire12" parent="." instance=ExtResource("7_tqv5a")]
 position = Vector2(72, 24)

@@ -74,6 +74,12 @@ func _unhandled_input(event):
 		var result = player.interact()
 		if result:
 			previous_moves.push_back(["interact",result])
+			
+	if event.is_action_pressed("elevate"):
+		if player.has_overlapping_areas():
+			for area in player.get_overlapping_areas():
+				if area is Elevator and area.powered:
+					load_level(area.destination_level)
 		
 	if event.is_action_pressed("reset"):
 		inventory = savepoint_inventory.duplicate()
