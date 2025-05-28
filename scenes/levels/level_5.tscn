@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dbcb31j11gnep"]
+[gd_scene load_steps=13 format=4 uid="uid://dbcb31j11gnep"]
 
 [ext_resource type="Script" uid="uid://b2ktf6seq0cem" path="res://scripts/level.gd" id="1_vvoq0"]
 [ext_resource type="Texture2D" uid="uid://crtjnb16e641u" path="res://assets/colored.png" id="2_vvoq0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dq2axf2n0pshg" path="res://scenes/down_elevator.tscn" id="7_0y7y4"]
 [ext_resource type="PackedScene" uid="uid://bddouck72rx7y" path="res://scenes/straight_wire.tscn" id="8_gruok"]
 [ext_resource type="PackedScene" uid="uid://dtp0bp74636lk" path="res://scenes/l_wire.tscn" id="9_h717f"]
+[ext_resource type="PackedScene" uid="uid://cin0yco14kfql" path="res://scenes/up_elevator.tscn" id="10_tqnj0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tqnj0"]
 texture = ExtResource("2_vvoq0")
@@ -1190,3 +1191,7 @@ rotation = 1.5708
 
 [node name="Wire10" parent="." instance=ExtResource("8_gruok")]
 position = Vector2(8, -8)
+
+[node name="UpElevator" parent="." instance=ExtResource("10_tqnj0")]
+position = Vector2(-24, -40)
+destination_level = 4

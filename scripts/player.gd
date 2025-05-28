@@ -9,21 +9,13 @@ extends Area2D
 signal player_update
 
 var moving = false
-var tile_size = 16
-var inputs = {"move_right": Vector2.RIGHT,
-			"move_left": Vector2.LEFT,
-			"move_up": Vector2.UP,
-			"move_down": Vector2.DOWN}
 
 func _ready() -> void:
-	position -= Vector2(1,1)
-	position = position.snapped(Vector2.ONE * tile_size)
-	position += Vector2.ONE * tile_size/2
 	point(LevelManager.player_dir)
 	player_update.connect(get_parent()._on_update)
 		
-func point(dir):
-	match dir:
+func point(direction):
+	match direction:
 		"move_up":
 			sprite.region_rect.position.y = 34
 		"move_right":
@@ -33,70 +25,43 @@ func point(dir):
 		"move_left":
 			sprite.region_rect.position.y = 17
 	
-func move(dir) -> Object:
-	ray.target_position = inputs[dir] * tile_size
+func move(dir: Vector2) -> Object:
+	ray.target_position = dir * LevelManager.tile_size
 	ray.force_raycast_update()
 	
-	LevelManager.player_dir = dir
-	point(dir)
-	
-	if ray.is_colliding():
-		var collided = ray.get_collider()
+	var collided = ray.get_collider()
+	if collided:
 		if collided is Wire:
-			var success = await collided.push(inputs[dir])
-			player_update.emit()
-			if success:
+			if await collided.push(dir):
 				return collided
 			else:
 				return null
-		elif collided is Gate and collided.powered:
-			pass
-		elif collided is Elevator:
+		elif (collided is Gate and collided.powered) or collided is Elevator:
 			pass
 		else:
 			return null
 	
 	var tween = create_tween()
-	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", position + ray.target_position, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	await tween.finished
 	moving = false
 	player_update.emit()
-	return self
 	
-func unmove(dir):
-	point(dir)
-	var new_dir = ""
-	match dir:
-		"move_up":
-			new_dir = "move_down"
-		"move_right":
-			new_dir = "move_left"
-		"move_down":
-			new_dir = "move_up"
-		"move_left":
-			new_dir = "move_right"
+	if collided is Elevator and collided.powered:
+		LevelManager.load_level(collided.destination_level)
+		return null
 	
-	var tween = create_tween()
-	tween.tween_property(self, "position", position + inputs[new_dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-	moving = true
-	await tween.finished
-	moving = false
-	player_update.emit()
 	return self
-			
 
 func interact():
-	if ray.is_colliding():
-		var collided = ray.get_collider()
+	var collided = ray.get_collider()
+	if collided:
 		if collided is Generator:
 			collided.activate()
 			player_update.emit()
 			return collided
-		elif collided is Wire and not collided.moving and LevelManager.inventory["wrench"] == 1:
-			collided.cwise()
-			player_update.emit()
+		elif collided is Wire and not collided.moving and LevelManager.has_item("wrench"):
+			collided.spin("clockwise")
 			return collided
 	return null
-	
-	

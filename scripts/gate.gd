@@ -6,19 +6,20 @@ extends StaticBody2D
 
 var powered = false
 
-func power_up():
-	powered = true
-	sprite.region_rect.position.y = 17
+func _ready():
+	update()
 	
-func power_down():
-	powered = false
-	sprite.region_rect.position.y = 0
+func update_sprite():
+	sprite.region_rect.position.y = int(powered) * 17
 	
 func update():
 	for power in power_checks:
 		if not power.find_child("CollisionShape2D").disabled and power.has_overlapping_areas():
 			var connection = power.get_overlapping_areas()[0].get_parent()
 			if (connection is Wire or connection is Generator) and connection.powered:
-				power_up()
+				powered = true
+				update_sprite()
 				return
-	power_down()
+
+	powered = false
+	update_sprite()

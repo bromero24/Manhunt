@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ca78d2tyq1y4f"]
 
-[ext_resource type="Script" uid="uid://dkafapgm8bn4y" path="res://scripts/fuel_cell.gd" id="1_crm1s"]
+[ext_resource type="Script" uid="uid://c4yvbm30cdx74" path="res://scripts/item.gd" id="1_crm1s"]
 [ext_resource type="Texture2D" uid="uid://crtjnb16e641u" path="res://assets/colored.png" id="2_crm1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5vnv"]
@@ -8,6 +8,7 @@ size = Vector2(12, 12)
 
 [node name="FuelCell" type="Area2D"]
 script = ExtResource("1_crm1s")
+item_name = "fuel_cell"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_crm1s")
@@ -16,5 +17,3 @@ region_rect = Rect2(578, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w5vnv")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

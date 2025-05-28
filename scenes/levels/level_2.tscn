@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://uo0bymovclqr"]
+[gd_scene load_steps=13 format=4 uid="uid://uo0bymovclqr"]
 
 [ext_resource type="Script" uid="uid://b2ktf6seq0cem" path="res://scripts/level.gd" id="1_8qukl"]
 [ext_resource type="Texture2D" uid="uid://crtjnb16e641u" path="res://assets/colored.png" id="2_3p04p"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dtp0bp74636lk" path="res://scenes/l_wire.tscn" id="6_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://bddouck72rx7y" path="res://scenes/straight_wire.tscn" id="7_nt80m"]
 [ext_resource type="PackedScene" uid="uid://cradi2tym0i20" path="res://scenes/gate.tscn" id="9_3p04p"]
+[ext_resource type="PackedScene" uid="uid://cin0yco14kfql" path="res://scenes/up_elevator.tscn" id="10_qsp8v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsp8v"]
 texture = ExtResource("2_3p04p")
@@ -1187,3 +1188,7 @@ position = Vector2(-40, 8)
 
 [node name="Gate" parent="." instance=ExtResource("9_3p04p")]
 position = Vector2(24, 40)
+
+[node name="UpElevator" parent="." instance=ExtResource("10_qsp8v")]
+position = Vector2(-8, 40)
+destination_level = 1

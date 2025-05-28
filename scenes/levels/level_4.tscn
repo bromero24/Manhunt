@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bxt1c5qctngsd"]
+[gd_scene load_steps=12 format=4 uid="uid://bxt1c5qctngsd"]
 
 [ext_resource type="Script" uid="uid://b2ktf6seq0cem" path="res://scripts/level.gd" id="1_ts8eg"]
 [ext_resource type="PackedScene" uid="uid://6xfyfdyvldjy" path="res://scenes/player.tscn" id="2_ts8eg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ca78d2tyq1y4f" path="res://scenes/fuel_cell.tscn" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://dtp0bp74636lk" path="res://scenes/l_wire.tscn" id="6_qvnao"]
 [ext_resource type="PackedScene" uid="uid://bddouck72rx7y" path="res://scenes/straight_wire.tscn" id="7_hsvsk"]
+[ext_resource type="PackedScene" uid="uid://cin0yco14kfql" path="res://scenes/up_elevator.tscn" id="9_um320"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glw47"]
 texture = ExtResource("2_um320")
@@ -1125,7 +1126,7 @@ sources/1 = SubResource("TileSetAtlasSource_glw47")
 script = ExtResource("1_ts8eg")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAMAAQAtAAIAAAABAAMAAQAuAAIAAAACAAIAAQAtAAIAAAABAAIAAQAvAAAAAAAAAAIAAQAtAAEAAAD//wIAAQAwAAAAAAD+/wIAAQAtAAIAAAD9/wIAAQAsAAIAAAD9/wEAAQAsAAEAAAD+/wEAAQAtAAEAAAD//wEAAQAtAAEAAAABAAEAAQAtAAEAAAABAP3/AQAtAAEAAAACAP3/AQAuAAEAAAACAP7/AQAuAAEAAAABAP7/AQAtAAEAAAAAAP7/AQAtAAEAAAD///7/AQAtAAEAAAD+//7/AQAtAAEAAAD9//7/AQAsAAEAAAD9//3/AQAsAAEAAAD+//3/AQAtAAEAAAD///3/AQAtAAEAAAAAAP//AQAtAAEAAAD/////AQAtAAEAAAD+////AQAtAAEAAAD//wAAAQAtAAEAAAD+/wAAAQAtAAEAAAAAAP3/AQAtAAEAAAACAP//AQAvAAEAAAABAP//AQAtAAEAAAABAAAAAQAtAAEAAAAAAAAAAQAtAAEAAAD9/wAAAQAsAAEAAAD9////AQAsAAEAAAAAAAEAAQAtAAEAAAD8//r/AQAoABIAAAD9//r/AQAuABIAAAD+//r/AQAkABMAAAD///r/AQAkABMAAAAAAPr/AQAnABMAAAACAPr/AQAjABEAAAADAPr/AQAnABEAAAACAPz/AQAuAAAAAAD9//z/AQAsAAAAAAD+//z/AQAtAAAAAAD///z/AQAtAAAAAAAAAPz/AQAtAAAAAAABAPz/AQAtAAAAAAD//wMAAQAsAAIAAAADAAIAAQAuAAIAAAADAAEAAQAuAAEAAAADAAAAAQAuAAEAAAADAP//AQAuAAAAAAACAAEAAQAtAAEAAAACAAAAAQAtAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAQAtAAIAAAABAAMAAQAtAAIAAAACAAIAAQAtAAEAAAABAAIAAQAtAAEAAAAAAAIAAQAtAAEAAAD//wIAAQAtAAEAAAD+/wIAAQAtAAEAAAD9/wIAAQAsAAEAAAD9/wEAAQAsAAEAAAD+/wEAAQAtAAEAAAD//wEAAQAtAAEAAAABAAEAAQAtAAEAAAABAP3/AQAtAAEAAAACAP3/AQAuAAEAAAACAP7/AQAuAAEAAAABAP7/AQAtAAEAAAAAAP7/AQAtAAEAAAD///7/AQAtAAEAAAD+//7/AQAtAAEAAAD9//7/AQAsAAEAAAD9//3/AQAsAAEAAAD+//3/AQAtAAEAAAD///3/AQAtAAEAAAAAAP//AQAtAAEAAAD/////AQAtAAEAAAD+////AQAtAAEAAAD//wAAAQAtAAEAAAD+/wAAAQAtAAEAAAAAAP3/AQAtAAEAAAACAP//AQAvAAEAAAABAP//AQAtAAEAAAABAAAAAQAtAAEAAAAAAAAAAQAtAAEAAAD9/wAAAQAsAAEAAAD9////AQAsAAEAAAAAAAEAAQAtAAEAAAD8//r/AQAoABIAAAD9//r/AQAuABIAAAD+//r/AQAkABMAAAD///r/AQAkABMAAAAAAPr/AQAnABMAAAACAPr/AQAjABEAAAADAPr/AQAnABEAAAACAPz/AQAuAAAAAAD9//z/AQAsAAAAAAD+//z/AQAtAAAAAAD///z/AQAtAAAAAAAAAPz/AQAtAAAAAAABAPz/AQAtAAAAAAD//wMAAQAtAAIAAAADAAIAAQAuAAEAAAADAAEAAQAuAAEAAAADAAAAAQAuAAEAAAADAP//AQAuAAAAAAACAAEAAQAtAAEAAAACAAAAAQAtAAEAAAD+/wMAAQAtAAIAAAACAAMAAQAtAAIAAAD9/wMAAQAsAAIAAAADAAMAAQAuAAIAAAA=")
 tile_set = SubResource("TileSet_ov8fk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1156,3 +1157,7 @@ rotation = -1.5708
 [node name="Wire3" parent="." instance=ExtResource("7_hsvsk")]
 position = Vector2(24, -24)
 rotation = 1.5708
+
+[node name="UpElevator" parent="." instance=ExtResource("9_um320")]
+position = Vector2(8, 40)
+destination_level = 3

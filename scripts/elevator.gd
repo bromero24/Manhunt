@@ -5,31 +5,19 @@ extends StaticBody2D
 @onready var sprite = $Sprite2D
 
 @export var destination_level : int
-
+@export var direction : String
 @export var desired_power : int
-
-var powered = false
+@export var powered : bool
 var powers
 
 func _ready():
-	sprite.region_rect.position.x = 680 + ((desired_power - 1) * 17)
-	update()
-
-func power_up():
-	powered = true
-	sprite.region_rect.position.y = 187
-	
-func power_down():
-	powered = false
-	sprite.region_rect.position.y = 306
+	if direction == "down":
+		sprite.region_rect.position.x = 680 + ((desired_power - 1) * 17)
+		update()
 
 func power_check():
-	var power_num = min(powers, desired_power)
-	sprite.region_rect.position.y = power_num * 17
-	if desired_power == powers:
-		powered = true
-	else:
-		powered = false
+	sprite.region_rect.position.y = min(powers, desired_power) * 17
+	powered = desired_power == powers
 
 func update():
 	powers = 0
@@ -38,10 +26,4 @@ func update():
 			var connection = power.get_overlapping_areas()[0].get_parent()
 			if (connection is Wire or connection is Generator) and connection.powered:
 				powers += 1
-	
 	power_check()
-
-
-func _on_elevator_entered(area):
-	if area is Player and powered:
-		LevelManager.load_level(destination_level)
